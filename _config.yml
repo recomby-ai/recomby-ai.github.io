@@ -1,29 +1,24 @@
-# =====================================================
-# Site settings — Recomby.ai Official Blog
-# =====================================================
+# Site settings
 title: Recomby.ai Blog
-SEOTitle: Recomby.ai | AI Search Optimization (GEO/AIO) Insights
+SEOTitle: Recomby.ai | AI Search Optimization Blog
 header-img: img/home-bg.jpg
 email: contact@recomby.ai
-description: "Recomby.ai — The AI Search Optimization (GEO/AIO) platform helping brands get cited, ranked, and recommended by AI engines."
-keyword: "Recomby.ai, AI Search Optimization, GEO, AIO, AI Recommendations, Agent API, llms.txt, schema, Generative Engine Optimization, B2B Manufacturing, AI Content, ANV Socks"
+description: "Recomby.ai —— 专注 AI 搜索优化（GEO/AIO）与 Agent API 基础设施，为企业提供 AI 时代的增长动力。"
+keyword: "Recomby.ai, AI Search Optimization, GEO, AIO, Agent API, llms.txt, schema, AI 推荐, SaaS, B2B"
 url: "https://blog.recomby.ai"
 baseurl: ""
 
+# Publish posts or collection documents with a future date.
 future: true
 
-# =====================================================
-# SNS settings — use corporate channels or leave blank
-# =====================================================
+# SNS settings
 RSS: false
 weibo_username:
 zhihu_username:
 github_username: recomby-ai
 twitter_username: recomby_ai
 
-# =====================================================
 # Build settings
-# =====================================================
 highlighter: rouge
 permalink: pretty
 paginate: 10
@@ -38,12 +33,10 @@ exclude:
   ]
 anchorjs: true
 
-plugins:
-  - jekyll-paginate
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
+# Gems
+plugins: [jekyll-paginate]   # 原模板只有它，保持原样
 
+# Markdown settings
 markdown: kramdown
 kramdown:
   input: GFM
@@ -54,47 +47,36 @@ kramdown:
       line_numbers: true
       start_line: 1
 
-# =====================================================
-# Disqus (optional)
-# =====================================================
+# Disqus settings
 disqus_username:
 
-# =====================================================
-# Analytics — replace with your GA4 Measurement ID
-# =====================================================
-ga_track_id: "G-XXXXXX"
+# Netease settings
+netease_comment: false
+
+# Analytics settings
+ga_track_id: "" 
 ga_domain: recomby.ai
 
-# =====================================================
-# Sidebar
-# =====================================================
+# Sidebar settings
 sidebar: true
-sidebar-about-description: "Recomby.ai — AI Search Optimization (GEO/AIO) & Agent API Infrastructure"
+sidebar-about-description: "Recomby.ai —— AI 搜索优化（GEO/AIO）与 Agent API 基础设施供应商"
 sidebar-avatar: https://blog.recomby.ai/assets/img/recomby-avatar.png
 
-# =====================================================
-# Featured tags
-# =====================================================
+# Featured Tags
 featured-tags: true
 featured-condition-size: 1
 
-# =====================================================
-# Progressive Web App
-# =====================================================
+# Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-# =====================================================
 # MathJax
-# =====================================================
 page-mathjax: false
 
-# =====================================================
-# Friends / Partners
-# =====================================================
+# Friends
 friends:
   [
+    { title: "Recomby Research", href: "https://research.recomby.ai/" },
+    { title: "Promptly OS", href: "https://promptly.recomby.ai/" },
     { title: "ANV Socks", href: "https://www.anvsocks.com/" },
-    { title: "Promptly OS", href: "https://promptly.recomby.ai" },
-    { title: "Recomby Research", href: "https://research.recomby.ai" },
   ]
