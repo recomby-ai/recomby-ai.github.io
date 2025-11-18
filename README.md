@@ -1,63 +1,101 @@
-[Hux Blog](https://huangxuan.me)
-================================
+# Recomby.ai Blog
 
-> I never expected this to become popular.
+[![Jekyll](https://img.shields.io/badge/Jekyll-4.x-red.svg)](https://jekyllrb.com/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-![](http://huangxuan.me/img/blog-desktop.jpg)
+Welcome to the official blog of **Recomby.ai** - your trusted partner in AI Search Optimization (GEO/AIO) and Agent API Infrastructure.
 
+🌐 **Live Site**: [blog.recomby.ai](https://blog.recomby.ai)
 
-[User Manual 👉](_doc/Manual.md)
---------------------------------------------------
+## About Recomby.ai
 
-### Getting Started
+Recomby.ai is dedicated to helping businesses thrive in the AI era by:
+- Optimizing visibility in AI search engines and AI Agents
+- Building robust Agent API infrastructure
+- Providing structured data standards (llms.txt, schema) implementation
+- Enhancing brand presence in AI recommendation scenarios
 
-1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
+## Getting Started
 
-2. Installed dependencies in the `Gemfile`:
+This blog is built with [Jekyll](https://jekyllrb.com/) and hosted on GitHub Pages.
 
-```sh
-$ bundle install 
+### Prerequisites
+
+- [Ruby](https://www.ruby-lang.org/en/) 2.5 or higher
+- [Bundler](https://bundler.io/)
+
+### Local Development
+
+1. Install dependencies:
+```bash
+bundle install
 ```
 
-3. Serve the website (`localhost:4000` by default):
-
-```sh
-$ bundle exec jekyll serve  # alternatively, npm start
+2. Run the development server:
+```bash
+bundle exec jekyll serve
 ```
 
-### Development (Build From Source)
+3. Open your browser and visit `http://localhost:4000`
 
-To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
+## Writing Posts
 
-Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
+Create new posts in the `_posts/` directory following the naming convention:
+```
+YYYY-MM-DD-title.md
+```
 
-Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
+Example post header:
+```yaml
+---
+layout: post
+title: "Your Post Title"
+subtitle: "Optional subtitle"
+date: 2025-11-18 12:00:00
+author: "Author Name"
+header-img: "img/post-bg.jpg"
+tags:
+    - AI
+    - GEO
+    - Technology
+---
+```
 
-This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
+## Project Structure
 
+```
+.
+├── _includes/          # Reusable components
+├── _layouts/           # Page layouts
+├── _posts/             # Blog posts
+├── css/                # Stylesheets
+├── js/                 # JavaScript files
+├── img/                # Images
+├── _config.yml         # Site configuration
+└── index.html          # Homepage
+```
 
-### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
+## Contact
 
+- **Website**: [recomby.ai](https://recomby.ai/)
+- **Email**: contact@recomby.ai
+- **Twitter**: [@recomby_ai](https://twitter.com/recomby_ai)
+- **GitHub**: [@recomby-ai](https://github.com/recomby-ai)
 
-Other Resources
----------------
+## Related Projects
 
-Ports
-- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
-- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
+- [Recomby Research](https://research.recomby.ai/) - Our research findings
+- [Promptly OS](https://promptly.recomby.ai/) - AI application development platform
+- [ANV Socks](https://www.anvsocks.com/) - Partner project
 
-[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
-- Out of date. Helps wanted for updating it on par with the main repo
+## License
 
-Translation
-- [🇨🇳  中文文档（有点过时）](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
+Copyright (c) 2025 Recomby.ai
 
+Licensed under the Apache License 2.0.
 
-License
--------
+This blog is built upon the [Hux Blog](https://github.com/Huxpro/huxpro.github.io) theme, which is derived from [Clean Blog Jekyll Theme](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/).
 
-Apache License 2.0.
-Copyright (c) 2015-present Huxpro
+---
 
-Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
-Copyright (c) 2013-2016 Blackrock Digital LLC.
+Made with ❤️ by the Recomby.ai team
