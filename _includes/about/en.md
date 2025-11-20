@@ -2,7 +2,14 @@
 
 Recomby.ai is an innovative technology company specializing in **AI Search Optimization (GEO/AIO)** and **Agent API Infrastructure**.
 
-We are dedicated to helping businesses build stronger online presence in the AI era, making your products and services better understood and recommended by AI through intelligent search optimization and API infrastructure.
+In the age of AI search and agents, we help "the best match" defeat "the loudest voice."
+
+### Our Philosophy
+
+- **Best Match Defeats the Best**
+- **Where Precision Beats Power**
+
+We don't rely on volume or capital, but on one thing: making your solution the "best match" in AI's eyes.
 
 ### Our Core Services
 
@@ -22,8 +29,3 @@ We are dedicated to helping businesses build stronger online presence in the AI 
 - Email: contact@recomby.ai
 - Twitter: [@recomby_ai](https://twitter.com/recomby_ai)
 - GitHub: [@recomby-ai](https://github.com/recomby-ai)
-
-### Related Resources
-
-- [Recomby Research](https://research.recomby.ai/) - Our research findings
-- [Promptly OS](https://promptly.recomby.ai/) - AI application development platform

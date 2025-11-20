@@ -1,0 +1,65 @@
+# Recomby.ai Blog
+
+> AI Search Optimization (GEO/AIO) & Agent API Infrastructure Provider
+
+## About
+
+Recomby.ai is an innovative technology company specializing in AI Search Optimization (GEO/AIO) and Agent API Infrastructure.
+
+In the age of AI search and agents, we help "the best match" defeat "the loudest voice."
+
+**Our Philosophy:**
+- Best Match Defeats the Best
+- Where Precision Beats Power
+
+We don't rely on volume or capital, but on one thing: making your solution the "best match" in AI's eyes.
+
+## Core Services
+
+### AI Search Optimization (GEO/AIO)
+- Optimize your visibility in AI search engines and AI Agents
+- Provide consulting and implementation for structured data standards (llms.txt, schema)
+- Enhance brand exposure in AI recommendation scenarios
+
+### Agent API Infrastructure
+- Provide standardized API interfaces for AI Agents
+- Build reliable and efficient data interaction infrastructure
+- Support enterprises to quickly integrate into AI ecosystems
+
+## Contact
+
+- Website: https://recomby.ai/
+- Email: contact@recomby.ai
+- Twitter: https://twitter.com/recomby_ai
+- GitHub: https://github.com/recomby-ai
+
+## Blog Posts
+
+### Recomby.ai: Get Recommended by AI, Not Left Behind by the Times
+Date: 2025-11-18
+URL: https://blog.recomby.ai/2025/11/18/let-ai-recommend-your-solution/
+Tags: AI Search Optimization, GEO, AIO, Agent API
+
+**Summary:**
+In the age of AI search and agents, we help "the best match" defeat "the loudest voice." This article explores how AI search is rewriting the rules of online growth, why businesses need AI search optimization instead of traditional SEO, and how API infrastructure enables future AI agents to discover and use your services.
+
+**Key Topics:**
+- AI Search Era: From keyword stuffing to solving specific problems
+- GEO/AIO: Building authority through structured, valuable content
+- Long-tail demand: Making niche capabilities commercially viable
+- Agent API: From human-oriented to agent-oriented infrastructure
+- The future of business in the AI ecosystem
+
+**Full Article:** https://blog.recomby.ai/2025/11/18/let-ai-recommend-your-solution/
+
+## Technical Information
+
+- Platform: Jekyll static site generator
+- Hosting: GitHub Pages
+- Base URL: https://blog.recomby.ai
+- Content Format: Markdown with YAML frontmatter
+
+## Content License
+
+Copyright © Recomby.ai 2025
+All content is proprietary unless otherwise stated.
