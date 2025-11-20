@@ -6,8 +6,12 @@ In the age of AI search and agents, we help "the best match" defeat "the loudest
 
 ### Our Philosophy
 
-- **Best Match Defeats the Best**
-- **Where Precision Beats Power**
+We believe in four core principles that guide everything we do:
+
+- **Best Match Defeats the Best** — Being the right answer matters more than being the biggest player
+- **Where Precision Beats Power** — Targeted relevance wins over broad reach
+- **Get Recommended by AI, Not Left Behind by the Times** — Position yourself where AI can discover and trust you
+- **From Human-Oriented to Agent-Oriented** — Build for intelligent agents, not just human visitors
 
 We don't rely on volume or capital, but on one thing: making your solution the "best match" in AI's eyes.
 
