@@ -74,9 +74,9 @@ service-worker: true
 page-mathjax: false
 
 # Friends
-friends:
-  [
-    { title: "Recomby Research", href: "https://research.recomby.ai/" },
-    { title: "Promptly OS", href: "https://promptly.recomby.ai/" },
-    { title: "ANV Socks", href: "https://www.anvsocks.com/" },
-  ]
+# friends:
+#   [
+#     { title: "Recomby Research", href: "https://research.recomby.ai/" },
+#     { title: "Promptly OS", href: "https://promptly.recomby.ai/" },
+#     { title: "ANV Socks", href: "https://www.anvsocks.com/" },
+#   ]
