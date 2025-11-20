@@ -60,11 +60,11 @@ ga_domain: recomby.ai
 # Sidebar settings
 sidebar: true
 sidebar-about-description: "Recomby.ai — AI Search Optimization (GEO/AIO) & Agent API Infrastructure Provider"
-sidebar-avatar: https://blog.recomby.ai/assets/img/recomby-avatar.png
+sidebar-avatar: /img/about-ai-tree.jpg
 
 # Featured Tags
 featured-tags: true
-featured-condition-size: 1
+featured-condition-size: 0
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
