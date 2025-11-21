@@ -11,10 +11,7 @@ baseurl: ""
 # Publish posts or collection documents with a future date.
 future: true
 
-# SNS settings
-RSS: false
-weibo_username:
-zhihu_username:
+# Social Media
 github_username: recomby-ai
 twitter_username: recomby_ai
 
@@ -46,12 +43,6 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-
-# Disqus settings
-disqus_username:
-
-# Netease settings
-netease_comment: false
 
 # Analytics settings
 ga_track_id: "" 
