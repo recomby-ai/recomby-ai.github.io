@@ -3,8 +3,8 @@ title: Recomby.ai Blog
 SEOTitle: Recomby.ai | AI Search Optimization Blog
 header-img: img/home-bg.jpg
 email: contact@recomby.ai
-description: "Recomby.ai —— 专注 AI 搜索优化（GEO/AIO）与 Agent API 基础设施，为企业提供 AI 时代的增长动力。"
-keyword: "Recomby.ai, AI Search Optimization, GEO, AIO, Agent API, llms.txt, schema, AI 推荐, SaaS, B2B"
+description: "Recomby.ai - AI Search Optimization (GEO/AIO) & Agent API Infrastructure. Making you the best match in AI's eyes."
+keyword: "Recomby.ai, AI Search Optimization, GEO, AIO, Agent API, llms.txt, schema, AI Recommendation, Agent-Oriented, SaaS, B2B"
 url: "https://blog.recomby.ai"
 baseurl: ""
 
@@ -34,7 +34,7 @@ exclude:
 anchorjs: true
 
 # Gems
-plugins: [jekyll-paginate]   # 原模板只有它，保持原样
+plugins: [jekyll-paginate]
 
 # Markdown settings
 markdown: kramdown
