@@ -24,12 +24,8 @@
 <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 {% endcase %}
 
-<!-- Open Graph Image -->
-{% if page.og_image %}
-<meta property="og:image" content="{{ site.url }}{{ page.og_image }}">
-{% else %}
+<!-- Open Graph Image (Unified brand image for all pages) -->
 <meta property="og:image" content="{{ site.url }}/img/og-image.jpg">
-{% endif %}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Recomby.ai - AI Search Optimization & Agent API Infrastructure">
@@ -46,11 +42,8 @@
 <meta name="twitter:creator" content="@{{ site.twitter_username }}">
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}">
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate:200 }}{% else %}{{ site.description }}{% endif %}">
-{% if page.og_image %}
-<meta name="twitter:image" content="{{ site.url }}{{ page.og_image }}">
-{% else %}
+<!-- Twitter Image (Unified brand image) -->
 <meta name="twitter:image" content="{{ site.url }}/img/og-image.jpg">
-{% endif %}
 <meta name="twitter:image:alt" content="Recomby.ai - AI Search Optimization & Agent API Infrastructure">
 
 <!-- Additional Meta for Better Compatibility -->
