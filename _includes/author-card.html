@@ -6,6 +6,12 @@ Displays author information in posts
 {% assign author_id = include.author | default: page.author | default: 'recomby_team' %}
 {% assign author = site.data.authors[author_id] %}
 
+{% comment %} Fallback: if author is a string (old format), use default author {% endcomment %}
+{% unless author %}
+  {% assign author = site.data.authors['recomby_team'] %}
+  {% assign author_name_override = author_id %}
+{% endunless %}
+
 {% if author %}
 <div class="author-card" style="margin: 2rem 0; padding: 1.5rem; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 4px;">
   <div style="display: flex; align-items: flex-start; gap: 1rem;">
@@ -20,7 +26,11 @@ Displays author information in posts
 
     <div class="author-info" style="flex-grow: 1;">
       <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1em;">
-        {{ author.display_name | default: author.name }}
+        {% if author_name_override %}
+          {{ author_name_override }}
+        {% else %}
+          {{ author.display_name | default: author.name }}
+        {% endif %}
       </h4>
 
       {% if author.job_title or author.company %}
