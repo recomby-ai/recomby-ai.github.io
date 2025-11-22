@@ -7,7 +7,7 @@ enabled: true
 home_label: "Home"
 
 # Separator between breadcrumb items
-separator: "›"  # Options: › / > » ▸
+separator: "/"  # Options: / or >
 
 # Show current page in breadcrumbs
 show_current: true

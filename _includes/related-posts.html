@@ -4,9 +4,7 @@ Shows related articles based on category, tags, and manual selection
 {% endcomment %}
 
 {% assign related_config = site.data.site.related_posts %}
-{% if related_config.enabled == false %}
-  {% return %}
-{% endif %}
+{% if related_config.enabled != false %}
 
 {% assign max_related = related_config.limit | default: 3 %}
 {% assign related_posts = '' | split: '' %}
@@ -149,4 +147,5 @@ Shows related articles based on category, tags, and manual selection
     {% endfor %}
   </div>
 </div>
+{% endif %}
 {% endif %}
