@@ -1,0 +1,40 @@
+# Authors Configuration
+# Add author profiles here and reference them in posts using: author: author_id
+
+# Default/Fallback Author
+recomby_team:
+  name: "Recomby Team"
+  display_name: "Recomby Team"
+  type: "Organization"  # Person or Organization
+  bio: "The Recomby.ai team is dedicated to helping businesses optimize for AI search and agent discovery."
+  avatar: "/img/about-ai-tree.jpg"
+  email: "contact@recomby.ai"
+  website: "https://recomby.ai"
+  job_title: ""
+  company: "Recomby.ai"
+  location: ""
+  social:
+    twitter: "recomby_ai"
+    github: "recomby-ai"
+    linkedin: ""
+    website: "https://recomby.ai"
+
+# Example Individual Author (uncomment and customize)
+# john_doe:
+#   name: "John Doe"
+#   display_name: "John Doe"
+#   type: "Person"
+#   bio: "SEO specialist focusing on AI search optimization and schema markup."
+#   avatar: "/img/authors/john.jpg"
+#   email: "john@example.com"
+#   website: "https://johndoe.com"
+#   job_title: "Senior SEO Specialist"
+#   company: "Recomby.ai"
+#   location: "San Francisco, CA"
+#   expertise: ["SEO", "AI Search", "Schema.org", "Content Strategy"]
+#   education: "Stanford University"
+#   social:
+#     twitter: "johndoe"
+#     github: "johndoe"
+#     linkedin: "in/johndoe"
+#     website: "https://johndoe.com"

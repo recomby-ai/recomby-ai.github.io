@@ -3,27 +3,36 @@
   Helps search engines and AI understand page content
 -->
 
+{% assign site_data = site.data.site %}
+{% assign company_data = site_data.company %}
+{% assign contact_data = site_data.contact %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": "{{ company_data.type | default: 'Organization' }}",
       "@id": "{{ site.url }}/#organization",
-      "name": "Recomby.ai",
-      "url": "https://recomby.ai",
+      "name": "{{ company_data.legal_name | default: site.title }}",
+      "url": "{{ company_data.website | default: site.url }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ site.url }}/img/logo.png",
+        "url": "{{ site.url }}{{ site_data.brand.logo | default: '/img/logo.png' }}",
         "width": 1024,
         "height": 1024
       },
-      "description": "{{ site.description }}",
-      "email": "{{ site.email }}",
+      "description": "{{ company_data.description | default: site.description }}",
+      "email": "{{ contact_data.email | default: site.email }}",
+      {% if company_data.founded %}
+      "foundingDate": "{{ company_data.founded }}",
+      {% endif %}
       "sameAs": [
-        "https://twitter.com/{{ site.twitter_username }}",
-        "https://github.com/{{ site.github_username }}",
-        "{{ site.url }}"
+        {% for platform in site.data.social.platforms %}
+        {% if platform[1].enabled and platform[1].url != '' %}
+        "{{ platform[1].url }}"{% unless forloop.last %},{% endunless %}
+        {% endif %}
+        {% endfor %}
       ]
     },
     {
@@ -35,7 +44,7 @@
       "publisher": {
         "@id": "{{ site.url }}/#organization"
       },
-      "inLanguage": "en-US"
+      "inLanguage": "{{ site_data.website.locale | default: 'en-US' }}"
     }
     {% if page.layout == 'post' %}
     ,{
@@ -43,22 +52,83 @@
       "@id": "{{ site.url }}{{ page.url }}#article",
       "headline": "{{ page.title }}",
       "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | truncate:200 }}{% else %}{{ page.description }}{% endif %}",
+      {% if page.featured_images %}
+      "image": [
+        {% for img in page.featured_images %}
+        "{{ site.url }}{{ img }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      {% else %}
       "image": {
         "@type": "ImageObject",
-        "url": "{{ site.url }}/img/og-image.jpg",
-        "width": 1200,
-        "height": 630
+        "url": "{{ site.url }}{{ site_data.seo.og_image | default: '/img/og-image.jpg' }}",
+        "width": {{ site_data.seo.og_image_width | default: 1200 }},
+        "height": {{ site_data.seo.og_image_height | default: 630 }}
       },
-      "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%SZ" }}",
-      {% if page.date_modified %}
-      "dateModified": "{{ page.date_modified | date: "%Y-%m-%dT%H:%M:%SZ" }}",
-      {% else %}
-      "dateModified": "{{ page.date | date: "%Y-%m-%dT%H:%M:%SZ" }}",
       {% endif %}
+      "datePublished": "{{ page.date | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      {% if page.date_modified %}
+      "dateModified": "{{ page.date_modified | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      {% else %}
+      "dateModified": "{{ page.date | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      {% endif %}
+      {% assign word_count = content | word_count %}
+      {% if page.word_count %}
+        {% assign word_count = page.word_count %}
+      {% endif %}
+      "wordCount": {{ word_count }},
+      {% assign reading_minutes = content | reading_time %}
+      {% if page.reading_time %}
+        {% assign reading_minutes = page.reading_time %}
+      {% endif %}
+      "timeRequired": "PT{{ reading_minutes }}M",
+      {% assign author_id = page.author | default: 'recomby_team' %}
+      {% assign author_data = site.data.authors[author_id] %}
+      {% if author_data %}
       "author": {
-        "@type": "{% if page.author_type %}{{ page.author_type }}{% else %}Organization{% endif %}",
-        "name": "{% if page.author %}{{ page.author }}{% else %}Recomby Team{% endif %}"
+        "@type": "{{ author_data.type | default: 'Organization' }}",
+        {% if author_data.type == 'Person' %}
+        "@id": "{{ site.url }}/author/{{ author_id }}/#person",
+        {% endif %}
+        "name": "{{ author_data.name | default: author_data.display_name }}",
+        {% if author_data.url or author_data.website %}
+        "url": "{{ author_data.url | default: author_data.website }}",
+        {% endif %}
+        {% if author_data.avatar %}
+        "image": "{{ site.url }}{{ author_data.avatar }}",
+        {% endif %}
+        {% if author_data.job_title %}
+        "jobTitle": "{{ author_data.job_title }}",
+        {% endif %}
+        {% if author_data.company and author_data.type == 'Person' %}
+        "worksFor": {
+          "@type": "Organization",
+          "name": "{{ author_data.company }}"
+        },
+        {% endif %}
+        "sameAs": [
+          {% for social in author_data.social %}
+          {% if social[1] != '' %}
+          {% if social[0] == 'twitter' %}
+          "https://twitter.com/{{ social[1] }}"
+          {% elsif social[0] == 'github' %}
+          "https://github.com/{{ social[1] }}"
+          {% elsif social[0] == 'linkedin' %}
+          "https://linkedin.com/{{ social[1] }}"
+          {% else %}
+          "{{ social[1] }}"
+          {% endif %}
+          {% unless forloop.last %},{% endunless %}
+          {% endif %}
+          {% endfor %}
+        ]
       },
+      {% else %}
+      "author": {
+        "@type": "Organization",
+        "name": "{{ page.author | default: 'Recomby Team' }}"
+      },
+      {% endif %}
       "publisher": {
         "@id": "{{ site.url }}/#organization"
       },
@@ -70,7 +140,7 @@
       "keywords": "{{ page.tags | join: ', ' }}",
       {% endif %}
       "articleSection": "{% if page.category %}{{ page.category }}{% else %}AI Search Optimization{% endif %}",
-      "inLanguage": "en-US"
+      "inLanguage": "{{ site_data.website.locale | default: 'en-US' }}"
     }
     {% endif %}
     {% if page.schema_faq %}
@@ -114,6 +184,58 @@
           "url": "{{ site.url }}{{ page.url }}#step{{ forloop.index }}"
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
+      ]
+    }
+    {% endif %}
+    {% if site.data.breadcrumbs.enabled and page.url != '/' %}
+    ,{
+      "@type": "BreadcrumbList",
+      "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{{ site.data.breadcrumbs.home_label | default: 'Home' }}",
+          "item": "{{ site.url }}/"
+        }
+        {% if page.breadcrumb_path %}
+          {% for crumb in page.breadcrumb_path %},
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index | plus: 1 }},
+            "name": "{{ crumb.label }}",
+            "item": "{{ site.url }}{{ crumb.url }}"
+          }
+          {% endfor %}
+        {% else %}
+          {% assign url_parts = page.url | split: '/' %}
+          {% assign crumb_path = '' %}
+          {% assign position = 2 %}
+          {% for part in url_parts %}
+            {% if part != '' and part != 'index.html' and forloop.last == false %}
+              {% assign crumb_path = crumb_path | append: '/' | append: part %}
+              {% assign crumb_label = part | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+              {% if site.data.breadcrumbs.custom_labels[part] %}
+                {% assign crumb_label = site.data.breadcrumbs.custom_labels[part] %}
+              {% endif %},
+          {
+            "@type": "ListItem",
+            "position": {{ position }},
+            "name": "{{ crumb_label }}",
+            "item": "{{ site.url }}{{ crumb_path }}"
+          }
+              {% assign position = position | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if site.data.breadcrumbs.show_current %},
+        {
+          "@type": "ListItem",
+          "position": {{ position }},
+          "name": "{{ page.title }}",
+          "item": "{{ site.url }}{{ page.url }}"
+        }
+        {% endif %}
       ]
     }
     {% endif %}

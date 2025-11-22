@@ -1,0 +1,73 @@
+{% comment %}
+Author Card Component
+Displays author information in posts
+{% endcomment %}
+
+{% assign author_id = include.author | default: page.author | default: 'recomby_team' %}
+{% assign author = site.data.authors[author_id] %}
+
+{% if author %}
+<div class="author-card" style="margin: 2rem 0; padding: 1.5rem; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 4px;">
+  <div style="display: flex; align-items: flex-start; gap: 1rem;">
+
+    {% if author.avatar %}
+    <div class="author-avatar" style="flex-shrink: 0;">
+      <img src="{{ author.avatar | prepend: site.baseurl }}"
+           alt="{{ author.display_name | default: author.name }}"
+           style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+    </div>
+    {% endif %}
+
+    <div class="author-info" style="flex-grow: 1;">
+      <h4 style="margin: 0 0 0.5rem 0; font-size: 1.1em;">
+        {{ author.display_name | default: author.name }}
+      </h4>
+
+      {% if author.job_title or author.company %}
+      <div class="author-title" style="color: #6c757d; font-size: 0.9em; margin-bottom: 0.5rem;">
+        {% if author.job_title %}{{ author.job_title }}{% endif %}
+        {% if author.job_title and author.company %} at {% endif %}
+        {% if author.company %}{{ author.company }}{% endif %}
+      </div>
+      {% endif %}
+
+      {% if author.bio %}
+      <p style="margin: 0.5rem 0; font-size: 0.95em; color: #555;">
+        {{ author.bio }}
+      </p>
+      {% endif %}
+
+      {% if author.social %}
+      <div class="author-social" style="margin-top: 0.75rem;">
+        {% for social in author.social %}
+          {% if social[1] and social[1] != '' %}
+            {% if social[0] == 'twitter' %}
+              <a href="https://twitter.com/{{ social[1] }}" target="_blank" rel="noopener" style="margin-right: 0.75rem; color: #1da1f2;">
+                <i class="fa fa-twitter"></i>
+              </a>
+            {% elsif social[0] == 'github' %}
+              <a href="https://github.com/{{ social[1] }}" target="_blank" rel="noopener" style="margin-right: 0.75rem; color: #333;">
+                <i class="fa fa-github"></i>
+              </a>
+            {% elsif social[0] == 'linkedin' %}
+              <a href="https://linkedin.com/{{ social[1] }}" target="_blank" rel="noopener" style="margin-right: 0.75rem; color: #0077b5;">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            {% elsif social[0] == 'website' %}
+              <a href="{{ social[1] }}" target="_blank" rel="noopener" style="margin-right: 0.75rem; color: #007bff;">
+                <i class="fa fa-globe"></i>
+              </a>
+            {% elsif social[0] == 'email' %}
+              <a href="mailto:{{ social[1] }}" style="margin-right: 0.75rem; color: #6c757d;">
+                <i class="fa fa-envelope"></i>
+              </a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+{% endif %}
