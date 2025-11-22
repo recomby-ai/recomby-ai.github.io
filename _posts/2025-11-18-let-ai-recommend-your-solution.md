@@ -3,7 +3,7 @@ layout: post
 title: "Recomby.ai: Get Recommended by AI, Not Left Behind by the Times"
 subtitle: "In the AI Search and Agent Era, Let 'The Best Match' Defeat 'The Loudest Voice'"
 date: 2025-11-18 12:00:00
-author: "Recomby Team"
+author: zhengyucheng
 header-img: "img/home-bg.jpg"
 catalog: true
 tags:
