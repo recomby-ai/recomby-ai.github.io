@@ -5,7 +5,7 @@ Generates breadcrumb navigation with Schema.org markup
 
 {% if site.data.breadcrumbs.enabled %}
 {% assign breadcrumb_config = site.data.breadcrumbs %}
-{% assign separator = breadcrumb_config.separator | default: "›" %}
+{% assign separator = breadcrumb_config.separator | default: "/" %}
 {% assign home_label = breadcrumb_config.home_label | default: "Home" %}
 
 <nav aria-label="breadcrumb" class="{{ breadcrumb_config.css.wrapper | default: 'breadcrumbs' }}">
