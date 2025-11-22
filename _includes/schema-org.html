@@ -28,10 +28,13 @@
       "foundingDate": "{{ company_data.founded }}",
       {% endif %}
       "sameAs": [
+        {% assign first_platform = true %}
         {% for platform in site.data.social.platforms %}
-        {% if platform[1].enabled and platform[1].url != '' %}
-        "{{ platform[1].url }}"{% unless forloop.last %},{% endunless %}
-        {% endif %}
+          {% if platform[1].enabled and platform[1].url and platform[1].url != '' %}
+            {% unless first_platform %},{% endunless %}
+            {% assign first_platform = false %}
+        "{{ platform[1].url }}"
+          {% endif %}
         {% endfor %}
       ]
     },
@@ -107,19 +110,21 @@
         },
         {% endif %}
         "sameAs": [
+          {% assign first_link = true %}
           {% for social in author_data.social %}
-          {% if social[1] != '' %}
-          {% if social[0] == 'twitter' %}
+            {% if social[1] and social[1] != '' %}
+              {% unless first_link %},{% endunless %}
+              {% assign first_link = false %}
+              {% if social[0] == 'twitter' %}
           "https://twitter.com/{{ social[1] }}"
-          {% elsif social[0] == 'github' %}
+              {% elsif social[0] == 'github' %}
           "https://github.com/{{ social[1] }}"
-          {% elsif social[0] == 'linkedin' %}
+              {% elsif social[0] == 'linkedin' %}
           "https://linkedin.com/{{ social[1] }}"
-          {% else %}
+              {% else %}
           "{{ social[1] }}"
-          {% endif %}
-          {% unless forloop.last %},{% endunless %}
-          {% endif %}
+              {% endif %}
+            {% endif %}
           {% endfor %}
         ]
       },

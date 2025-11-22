@@ -47,11 +47,23 @@ Generates breadcrumb navigation with Schema.org markup
             {% assign crumb_label = breadcrumb_config.custom_labels[part] %}
           {% endif %}
 
+          {% comment %} Check if this is a date part (year/month/day are numbers) {% endcomment %}
+          {% assign is_date = false %}
+          {% if part == part | plus: 0 | append: '' %}
+            {% assign is_date = true %}
+          {% endif %}
+
           <li class="{{ breadcrumb_config.css.separator | default: 'separator' }}" aria-hidden="true">{{ separator }}</li>
           <li class="{{ breadcrumb_config.css.item | default: 'breadcrumb-item' }}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a href="{{ crumb_path | prepend: site.baseurl }}" itemprop="item">
+            {% if is_date %}
+              {% comment %} Date parts are not clickable {% endcomment %}
               <span itemprop="name">{{ crumb_label }}</span>
-            </a>
+              <meta itemprop="item" content="{{ crumb_path | prepend: site.url }}" />
+            {% else %}
+              <a href="{{ crumb_path | prepend: site.baseurl }}" itemprop="item">
+                <span itemprop="name">{{ crumb_label }}</span>
+              </a>
+            {% endif %}
             <meta itemprop="position" content="{{ position }}" />
           </li>
 
